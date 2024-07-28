@@ -39,7 +39,7 @@ export function NoteProvider({ children }) {
   async function sendData({ title, content, token }) {
     const res = await axios
       .post(
-        "https://note-sigma-black.vercel.app/api/v1/notes",
+        "ApiKey",
         { title, content },
         {
           headers: {
@@ -69,7 +69,7 @@ export function NoteProvider({ children }) {
   async function getAllNotes(token) {
     try {
       let { data } = await axios.get(
-        "https://note-sigma-black.vercel.app/api/v1/notes",
+        "apikey",
         {
           headers: {
             token,
@@ -101,7 +101,7 @@ export function NoteProvider({ children }) {
   // ===================> Send Data to Api to Delete Notes
   async function delteNote({ noteID, token }) {
     const { data } = await axios
-      .delete(`https://note-sigma-black.vercel.app/api/v1/notes/${noteID}`, {
+      .delete(`apikey${noteID}`, {
         headers: { token },
       })
       .catch((e) => {
@@ -143,7 +143,7 @@ export function NoteProvider({ children }) {
   // ===================> Send Data to Api to Update Notes
   async function sendUpdateData({ noteID, token, title, content }) {
     const { data } = await axios.put(
-      `https://note-sigma-black.vercel.app/api/v1/notes/${noteID}`,
+      `apikey${noteID}`,
       { title, content },
       { headers: { token } }
     );
