@@ -11,7 +11,7 @@ function Register() {
 
  async function handleRegister(values){
   setisLoading(true);
-   const {data} = await axios.post(`https://note-sigma-black.vercel.app/api/v1/users/signUp`, values)
+   const {data} = await axios.post(`apikey`, values)
    .catch((err)=> {
     setisLoading(false);
     setMessageError(err.response.data.msg);
